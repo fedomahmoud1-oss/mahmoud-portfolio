@@ -1,0 +1,224 @@
+{
+  "credits": [
+    {
+      "group": "screen",
+      "year": "2025",
+      "title_en": "The Proximity Seeker",
+      "title_ar": "طالب القرب",
+      "meta_en": "Short Film · Social Comedy",
+      "meta_ar": "فيلم قصير · كوميديا اجتماعية",
+      "role_en": "Original idea · Screenplay · Dialogue · Director",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار · إخراج",
+      "status": "Produced"
+    },
+    {
+      "group": "screen",
+      "year": "",
+      "title_en": "الكاش في الطريق 3",
+      "title_ar": "الكاش في الطريق ٣",
+      "meta_en": "TV competition · Saudi Television & Shahid",
+      "meta_ar": "برنامج مسابقات · التلفزيون السعودي وشاهد",
+      "role_en": "Creative Writer · 15 episodes",
+      "role_ar": "كاتب إبداعي · ١٥ حلقة",
+      "status": "Broadcast"
+    },
+    {
+      "group": "screen",
+      "year": "",
+      "title_en": "الجوهرة المخفية",
+      "title_ar": "الجوهرة المخفية",
+      "meta_en": "Original Saudi micro-drama · 60 episodes × ~2 min · Drama · Rise/Ambition · Crime",
+      "meta_ar": "مسلسل قصير سعودي أصلي · ٦٠ حلقة × ~دقيقتين · دراما · صعود وطموح · جريمة",
+      "role_en": "Original concept · Story · Screenplay · Dialogue · Contributing Director",
+      "role_ar": "الفكرة الأصلية · القصة · السيناريو · الحوار · مخرج مشارك",
+      "status": "Produced"
+    },
+    {
+      "group": "screen",
+      "year": "",
+      "title_en": "Early Saudi Micro-Drama Production",
+      "title_ar": "إنتاج مبكر للدراما القصيرة السعودية",
+      "meta_en": "Micro-drama series",
+      "meta_ar": "مسلسل دراما قصيرة",
+      "role_en": "Writer · Director",
+      "role_ar": "كاتب · مخرج",
+      "status": "Produced"
+    },
+    {
+      "group": "screen",
+      "year": "2024",
+      "title_en": "Missed Call",
+      "title_ar": "Missed Call",
+      "meta_en": "Short Film · Drama · Thriller · Psychodrama",
+      "meta_ar": "فيلم قصير · دراما · تشويق · دراما نفسية",
+      "role_en": "Original idea · Screenplay · Dialogue · Lead Actor (two characters) · First Assistant Director",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار · البطولة (شخصيتان) · مساعد مخرج أول",
+      "status": "Post-production"
+    },
+    {
+      "group": "screen",
+      "year": "",
+      "title_en": "Haq El Geera",
+      "title_ar": "حق الجيرة",
+      "meta_en": "Short Film · Directed by Faiza Amber",
+      "meta_ar": "فيلم قصير · إخراج فايزة أمبر",
+      "role_en": "Actor",
+      "role_ar": "ممثل",
+      "status": "Unreleased"
+    },
+    {
+      "group": "series",
+      "year": "",
+      "title_en": "العودة",
+      "title_ar": "العودة",
+      "meta_en": "Produced series",
+      "meta_ar": "مسلسل منفَّذ",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "Produced"
+    },
+    {
+      "group": "series",
+      "year": "",
+      "title_en": "The Wrong Mr Woung",
+      "title_ar": "The Wrong Mr Woung",
+      "meta_en": "Produced series",
+      "meta_ar": "مسلسل منفَّذ",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "Produced"
+    },
+    {
+      "group": "series",
+      "year": "",
+      "title_en": "No Budget Film",
+      "title_ar": "No Budget Film",
+      "meta_en": "Produced series",
+      "meta_ar": "مسلسل منفَّذ",
+      "role_en": "Original concept · Screenplay · Dialogue · Lead acting role",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار · دور البطولة",
+      "status": "Produced"
+    },
+    {
+      "group": "series",
+      "year": "",
+      "title_en": "3 ساعات",
+      "title_ar": "٣ ساعات",
+      "meta_en": "Produced in Saudi Arabia · Original Saudi story",
+      "meta_ar": "إنتاج سعودي · قصة سعودية أصلية",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "Produced"
+    },
+    {
+      "group": "direction",
+      "year": "",
+      "title_en": "Alive",
+      "title_ar": "Alive",
+      "meta_en": "Rap music video",
+      "meta_ar": "فيديو كليب راب",
+      "role_en": "Cinematography · Direction",
+      "role_ar": "التصوير · الإخراج",
+      "status": "Produced"
+    },
+    {
+      "group": "direction",
+      "year": "",
+      "title_en": "Instagram Short-Form Film",
+      "title_ar": "فيلم قصير لإنستغرام",
+      "meta_en": "Short-form film · shot in approximately 4 hours",
+      "meta_ar": "فيلم قصير · صُوّر في نحو ٤ ساعات",
+      "role_en": "Writer · Director",
+      "role_ar": "كاتب · مخرج",
+      "status": "Produced"
+    },
+    {
+      "group": "commercial",
+      "year": "",
+      "title_en": "Saudi Electricity Company",
+      "title_ar": "الشركة السعودية للكهرباء",
+      "meta_en": "Commercial production",
+      "meta_ar": "إنتاج إعلاني",
+      "role_en": "Acting Coach",
+      "role_ar": "مدرب تمثيل",
+      "status": "Produced"
+    },
+    {
+      "group": "commercial",
+      "year": "",
+      "title_en": "Al Batal Chips — Weld El Balad",
+      "title_ar": "شيبس البطل — ولد البلد",
+      "meta_en": "Commercial production",
+      "meta_ar": "إنتاج إعلاني",
+      "role_en": "Acting Coach · Second Assistant Director",
+      "role_ar": "مدرب تمثيل · مساعد مخرج ثانٍ",
+      "status": "Produced"
+    },
+    {
+      "group": "development",
+      "year": "",
+      "title_en": "كابينة 13",
+      "title_ar": "كابينة ١٣",
+      "meta_en": "Screenplay",
+      "meta_ar": "سيناريو",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "In Development"
+    },
+    {
+      "group": "development",
+      "year": "",
+      "title_en": "محطة الذنب",
+      "title_ar": "محطة الذنب",
+      "meta_en": "Screenplay",
+      "meta_ar": "سيناريو",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "In Development"
+    },
+    {
+      "group": "development",
+      "year": "",
+      "title_en": "حارس البوابة",
+      "title_ar": "حارس البوابة",
+      "meta_en": "Screenplay",
+      "meta_ar": "سيناريو",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "In Development"
+    },
+    {
+      "group": "development",
+      "year": "",
+      "title_en": "مثل شعبي",
+      "title_ar": "مثل شعبي",
+      "meta_en": "Screenplay",
+      "meta_ar": "سيناريو",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "In Development"
+    },
+    {
+      "group": "development",
+      "year": "",
+      "title_en": "Don't Look Back",
+      "title_ar": "Don't Look Back",
+      "meta_en": "Feature film",
+      "meta_ar": "فيلم روائي طويل",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "In Development"
+    },
+    {
+      "group": "development",
+      "year": "",
+      "title_en": "خيط مزيف",
+      "title_ar": "خيط مزيف",
+      "meta_en": "Animated film",
+      "meta_ar": "فيلم رسوم متحركة",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "In Development"
+    }
+  ]
+}

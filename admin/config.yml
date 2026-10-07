@@ -1,0 +1,67 @@
+# Decap CMS — private admin for Mahmoud Fadawy's portfolio.
+# Only people with WRITE access to the GitHub repo below can log in and save.
+backend:
+  name: github
+  repo: fedomahmoud1-oss/mahmoud-portfolio
+  branch: main
+
+publish_mode: simple
+media_folder: media/uploads
+public_folder: /media/uploads
+site_url: https://YOUR-SITE.netlify.app
+display_url: https://YOUR-SITE.netlify.app
+
+collections:
+  - name: portfolio
+    label: Portfolio
+    files:
+      - name: works
+        label: Selected Work (video / poster grid)
+        file: content/works.json
+        format: json
+        fields:
+          - label: Works
+            name: works
+            widget: list
+            summary: "{{fields.title_en}} — {{fields.category}}"
+            fields:
+              - { label: Category, name: category, widget: select, options: [{label: AI Filmmaking, value: ai}, {label: Film, value: film}, {label: Television, value: tv}, {label: Micro-drama, value: micro}, {label: Theatre, value: theatre}, {label: Direction, value: direction}, {label: Commercial, value: commercial}] }
+              - { label: Title (English), name: title_en, widget: string }
+              - { label: Title (Arabic), name: title_ar, widget: string }
+              - { label: Type (English), name: type_en, widget: string, hint: "e.g. AI Commercial · 1:00" }
+              - { label: Type (Arabic), name: type_ar, widget: string }
+              - { label: My role (English), name: role_en, widget: string }
+              - { label: My role (Arabic), name: role_ar, widget: string }
+              - { label: Year, name: year, widget: string, required: false }
+              - { label: Status, name: status, widget: select, options: ["Produced", "Released", "Broadcast", "Post-production", "Unreleased", "In Development"] }
+              - { label: Description (English), name: desc_en, widget: text, required: false }
+              - { label: Description (Arabic), name: desc_ar, widget: text, required: false }
+              - { label: Media type, name: media_kind, widget: select, options: [{label: Video file, value: video}, {label: Image / poster, value: image}, {label: YouTube link, value: youtube}] }
+              - { label: "Video / image file (compressed MP4 under ~50MB, or an image)", name: media, widget: file, required: false, hint: "Leave empty if you use a YouTube link instead." }
+              - { label: YouTube link (for long or large videos - set the Unlisted privacy on YouTube), name: youtube, widget: string, required: false }
+              - { label: Poster image (thumbnail), name: poster, widget: image, required: false }
+              - label: Extra videos (optional playlist)
+                name: more
+                widget: list
+                required: false
+                field: { label: Video path, name: path, widget: string }
+              - { label: Feature at the top?, name: featured, widget: boolean, default: false, required: false }
+      - name: credits
+        label: Credits list (writing, film, TV, commercial)
+        file: content/credits.json
+        format: json
+        fields:
+          - label: Credits
+            name: credits
+            widget: list
+            summary: "{{fields.title_en}} — {{fields.group}}"
+            fields:
+              - { label: Section, name: group, widget: select, options: [{label: Film / TV / Micro-drama, value: screen}, {label: Produced series, value: series}, {label: Direction & visual work, value: direction}, {label: In development, value: development}, {label: Commercial production, value: commercial}] }
+              - { label: Year, name: year, widget: string, required: false }
+              - { label: Title (English view), name: title_en, widget: string }
+              - { label: Title (Arabic view), name: title_ar, widget: string }
+              - { label: Details (English), name: meta_en, widget: string }
+              - { label: Details (Arabic), name: meta_ar, widget: string }
+              - { label: My role (English), name: role_en, widget: string }
+              - { label: My role (Arabic), name: role_ar, widget: string }
+              - { label: Status, name: status, widget: select, options: ["Produced", "Released", "Broadcast", "Post-production", "Unreleased", "In Development"] }
