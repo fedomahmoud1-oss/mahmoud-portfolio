@@ -177,23 +177,6 @@
       "featured": false
     },
     {
-      "category": "film",
-      "title_en": "Haq El Geera",
-      "title_ar": "حق الجيرة",
-      "type_en": "Short Film · Directed by Faiza Amber",
-      "type_ar": "فيلم قصير · إخراج فايزة أمبر",
-      "role_en": "Actor",
-      "role_ar": "ممثل",
-      "year": "",
-      "status": "Unreleased",
-      "desc_en": "Unofficial concept poster. No official theatrical poster exists yet.",
-      "desc_ar": "بوستر تصوري غير رسمي. لا يوجد بوستر رسمي للعرض حتى الآن.",
-      "media_kind": "image",
-      "media": "media/img/haq-el-geera.jpg",
-      "poster": "media/img/haq-el-geera.jpg",
-      "featured": false
-    },
-    {
       "category": "ai",
       "title_en": "Studio Dialogue Test 01",
       "title_ar": "اختبار حوار الاستوديو ٠١",
@@ -226,6 +209,42 @@
       "media": "media/video/character.mp4",
       "poster": "media/img/p-character.jpg",
       "featured": false
+    },
+    {
+      "category": "commercial",
+      "title_en": "Al Batal Chips — Weld El Balad",
+      "title_ar": "شيبس البطل — ولد البلد",
+      "type_en": "Brand commercial",
+      "type_ar": "إعلان لعلامة تجارية",
+      "role_en": "Acting Coach · Second Assistant Director",
+      "role_ar": "مدرب تمثيل · مساعد مخرج ثانٍ",
+      "year": "Jun 2026",
+      "status": "Released",
+      "desc_en": "Published on the brand's official YouTube channel.",
+      "desc_ar": "نُشر على القناة الرسمية للعلامة على يوتيوب.",
+      "media_kind": "youtube",
+      "youtube": "https://youtu.be/bM7TuZ6-2gU",
+      "media": "",
+      "poster": "media/img/p-albatal.jpg",
+      "featured": true
+    },
+    {
+      "category": "commercial",
+      "title_en": "Saudi Electricity Company",
+      "title_ar": "الشركة السعودية للكهرباء",
+      "type_en": "Brand commercial",
+      "type_ar": "إعلان لعلامة تجارية",
+      "role_en": "Acting Coach",
+      "role_ar": "مدرب تمثيل",
+      "year": "Sep 2025",
+      "status": "Released",
+      "desc_en": "Published on the official YouTube channel.",
+      "desc_ar": "نُشر على القناة الرسمية على يوتيوب.",
+      "media_kind": "youtube",
+      "youtube": "https://youtu.be/XlVa-4VdNWc",
+      "media": "",
+      "poster": "media/img/p-sec.jpg",
+      "featured": true
     }
   ]
 }

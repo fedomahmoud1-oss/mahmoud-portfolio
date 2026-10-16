@@ -32,7 +32,7 @@ collections:
               - { label: Type (Arabic), name: type_ar, widget: string }
               - { label: My role (English), name: role_en, widget: string }
               - { label: My role (Arabic), name: role_ar, widget: string }
-              - { label: Year, name: year, widget: string, required: false }
+              - { label: "Year or date shown on the card (e.g. Jun 2026)", name: year, widget: string, required: false }
               - { label: Status, name: status, widget: select, options: ["Produced", "Released", "Broadcast", "Post-production", "Unreleased", "In Development"] }
               - { label: Description (English), name: desc_en, widget: text, required: false }
               - { label: Description (Arabic), name: desc_ar, widget: text, required: false }
@@ -56,7 +56,7 @@ collections:
             widget: list
             summary: "{{fields.title_en}} — {{fields.group}}"
             fields:
-              - { label: Section, name: group, widget: select, options: [{label: Film / TV / Micro-drama, value: screen}, {label: Produced series, value: series}, {label: Direction & visual work, value: direction}, {label: In development, value: development}, {label: Commercial production, value: commercial}] }
+              - { label: Section, name: group, widget: select, options: [{label: Film / TV / short films, value: screen}, {label: Series and micro-drama (card with logline), value: series}, {label: Direction & visual work, value: direction}, {label: In development (unproduced), value: development}, {label: Commercial production (list only), value: commercial}, {label: Acting role (Acting & Theatre section), value: acting}] }
               - { label: Year, name: year, widget: string, required: false }
               - { label: Title (English view), name: title_en, widget: string }
               - { label: Title (Arabic view), name: title_ar, widget: string }
@@ -64,4 +64,8 @@ collections:
               - { label: Details (Arabic), name: meta_ar, widget: string }
               - { label: My role (English), name: role_en, widget: string }
               - { label: My role (Arabic), name: role_ar, widget: string }
-              - { label: Status, name: status, widget: select, options: ["Produced", "Released", "Broadcast", "Post-production", "Unreleased", "In Development"] }
+              - { label: Status (optional), name: status, widget: select, required: false, options: ["Produced", "Released", "Broadcast", "Post-production", "Unreleased", "In Development"] }
+              - { label: Logline (English) - series only, name: logline_en, widget: text, required: false }
+              - { label: Logline (Arabic) - series only, name: logline_ar, widget: text, required: false }
+              - { label: "Discussed date (English), e.g. Aug 2025", name: date_en, widget: string, required: false }
+              - { label: "Discussed date (Arabic)", name: date_ar, widget: string, required: false }

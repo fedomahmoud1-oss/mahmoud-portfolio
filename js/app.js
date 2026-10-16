@@ -5,32 +5,20 @@
 
   var T = {
     en: {
-      all: 'All', play: 'Play',
-      cat: { ai: 'AI Filmmaking', film: 'Film', tv: 'Television', micro: 'Micro-drama', theatre: 'Theatre', direction: 'Direction', commercial: 'Commercial' },
       status: { 'Produced': 'Produced', 'Released': 'Released', 'Broadcast': 'Broadcast', 'Post-production': 'Post-production', 'Unreleased': 'Unreleased', 'In Development': 'In development' },
-      groups: {
-        screen: ['Film, television & micro-drama', ''],
-        series: ['Produced series', 'Original concept, screenplay and dialogue'],
-        direction: ['Direction & visual work', ''],
-        development: ['In development', 'Unproduced screenplays and concepts']
-      },
-      ticker: ['AI Filmmaking', 'Workflow Design', 'Creative Direction', 'Screenwriting', 'Copywriting', 'Direction', 'Theatre', 'Team Training']
+      groups: { screen: ['Film, television & short films', ''], direction: ['Direction & visual work', ''] },
+      discussed: 'Discussed', showAll: 'Show all', showLess: 'Show fewer', shot: 'Shot', watchYT: 'Watch on YouTube'
     },
     ar: {
-      all: 'الكل', play: 'تشغيل',
-      cat: { ai: 'صناعة أفلام بالذكاء الاصطناعي', film: 'أفلام', tv: 'تلفزيون', micro: 'دراما قصيرة', theatre: 'مسرح', direction: 'إخراج', commercial: 'إعلانات' },
       status: { 'Produced': 'منفَّذ', 'Released': 'معروض', 'Broadcast': 'عُرض تلفزيونيًا', 'Post-production': 'مرحلة ما بعد الإنتاج', 'Unreleased': 'غير معروض بعد', 'In Development': 'قيد التطوير' },
-      groups: {
-        screen: ['أفلام وتلفزيون ودراما قصيرة', ''],
-        series: ['مسلسلات منفَّذة', 'الفكرة الأصلية والسيناريو والحوار'],
-        direction: ['الإخراج والعمل البصري', ''],
-        development: ['قيد التطوير', 'سيناريوهات وأفكار لم تُنتَج بعد']
-      },
-      ticker: ['صناعة أفلام بالذكاء الاصطناعي', 'تصميم أنظمة العمل', 'إدارة إبداعية', 'كتابة السيناريو', 'كتابة الإعلانات', 'الإخراج', 'المسرح', 'تدريب الفرق']
+      groups: { screen: ['أفلام وتلفزيون وأفلام قصيرة', ''], direction: ['الإخراج والعمل البصري', ''] },
+      discussed: 'نوقش', showAll: 'عرض الكل', showLess: 'عرض أقل', shot: 'لقطة', watchYT: 'شاهد على يوتيوب'
     }
   };
+  var AI_VISIBLE = 6;
+  var CONTAINER = { ai: '#worksAI', commercial: '#worksBrands' }; // everything else -> #worksFilm
 
-  var state = { lang: 'en', works: [], credits: [], filter: 'all' };
+  var state = { lang: 'en', works: [], credits: [], aiOpen: false };
   var html = document.documentElement;
   var pick = function (o, k) { return (state.lang === 'ar' && o[k + '_ar']) ? o[k + '_ar'] : (o[k + '_en'] || ''); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -49,43 +37,46 @@
     var ar = state.lang === 'ar';
     html.lang = ar ? 'ar' : 'en';
     html.dir = ar ? 'rtl' : 'ltr';
-    document.title = ar ? 'محمود فداوي — مدير إبداعي · صانع أفلام ذكاء اصطناعي · مخرج' : 'Mahmoud Fadawy — Creative Director · AI Filmmaker · Screenwriter · Director';
+    document.title = ar ? 'محمود فداوي — كاتب · مخرج · ممثل · صانع أفلام ذكاء اصطناعي' : 'Mahmoud Fadawy — Writer · Director · Actor · AI Filmmaker';
   }
   function setLang(l) {
     state.lang = l === 'ar' ? 'ar' : 'en';
     store.set('mf-lang', state.lang);
     try { var u = new URL(location.href); if (state.lang === 'ar') u.searchParams.set('lang', 'ar'); else u.searchParams.delete('lang'); history.replaceState(null, '', u); } catch (e) {}
-    applyStatic(); renderTicker(); renderFilters(); renderWorks(); renderCredits(); observe();
+    applyStatic(); renderAll(); observe();
   }
 
-  /* ---------- ticker ---------- */
-  function renderTicker() {
-    var items = T[state.lang].ticker.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
-    $('#tick').innerHTML = items + items + items + items;
-  }
-
-  /* ---------- work grid ---------- */
-  function renderFilters() {
-    var cats = []; state.works.forEach(function (w) { if (cats.indexOf(w.category) < 0) cats.push(w.category); });
-    var h = '<button class="chip' + (state.filter === 'all' ? ' on' : '') + '" data-f="all">' + T[state.lang].all + '</button>';
-    cats.forEach(function (c) { h += '<button class="chip' + (state.filter === c ? ' on' : '') + '" data-f="' + esc(c) + '">' + esc(T[state.lang].cat[c] || c) + '</button>'; });
-    $('#filters').innerHTML = h;
+  /* ---------- works ---------- */
+  function workCard(w, i) {
+    var isVid = w.media_kind === 'video' || w.media_kind === 'youtube';
+    var st = T[state.lang].status[w.status] || w.status;
+    var yr = w.year ? ' · ' + esc(w.year) : '';
+    var cls = 'work rv' + (w.category === 'commercial' ? ' ad' : '');
+    return '<button class="' + cls + '" data-i="' + i + '" aria-label="' + esc(pick(w, 'title')) + '">' +
+      '<div class="media"><img src="' + esc(w.poster || w.media) + '" alt="' + esc(pick(w, 'title')) + '" loading="lazy">' +
+      (w.media_kind === 'video' ? '<video muted loop playsinline preload="none" data-src="' + esc(w.media) + '"></video>' : '') + '</div>' +
+      (st ? '<span class="badge">' + esc(st) + '</span>' : '') +
+      (isVid ? '<span class="play"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M2 1l11 6-11 6z"/></svg></span>' : '') +
+      '<span class="shade"></span><span class="info"><small>' + esc(pick(w, 'type')) + yr + '</small><h3>' + esc(pick(w, 'title')) + '</h3><p>' + esc(pick(w, 'role')) + '</p></span></button>';
   }
   function renderWorks() {
-    var list = state.works.map(function (w, i) { return { w: w, i: i }; })
-      .sort(function (a, b) { return (b.w.featured ? 1 : 0) - (a.w.featured ? 1 : 0) || a.i - b.i; });
-    $('#works').innerHTML = list.map(function (o) {
-      var w = o.w, isVid = w.media_kind === 'video' || w.media_kind === 'youtube';
-      var st = T[state.lang].status[w.status] || w.status;
-      var yr = w.year ? ' · ' + esc(w.year) : '';
-      return '<button class="work' + (state.filter !== 'all' && w.category !== state.filter ? ' hide' : '') + '" data-i="' + o.i + '" aria-label="' + esc(pick(w, 'title')) + '">' +
-        '<div class="media"><img src="' + esc(w.poster || w.media) + '" alt="' + esc(pick(w, 'title')) + '" loading="lazy">' +
-        (w.media_kind === 'video' ? '<video muted loop playsinline preload="none" data-src="' + esc(w.media) + '"></video>' : '') + '</div>' +
-        '<span class="badge">' + esc(st) + '</span>' +
-        (isVid ? '<span class="play"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M2 1l11 6-11 6z"/></svg></span>' : '') +
-        '<span class="shade"></span><span class="info"><small>' + esc(pick(w, 'type')) + yr + '</small><h3>' + esc(pick(w, 'title')) + '</h3><p>' + esc(pick(w, 'role')) + '</p></span></button>';
-    }).join('');
+    var groups = {};
+    state.works.map(function (w, i) { return { w: w, i: i }; })
+      .sort(function (a, b) { return (b.w.featured ? 1 : 0) - (a.w.featured ? 1 : 0) || a.i - b.i; })
+      .forEach(function (o) { var sel = CONTAINER[o.w.category] || '#worksFilm'; (groups[sel] = groups[sel] || []).push(workCard(o.w, o.i)); });
+    ['#worksAI', '#worksFilm', '#worksBrands'].forEach(function (sel) {
+      var el = $(sel), list = groups[sel] || [];
+      el.innerHTML = list.join('');
+      el.hidden = !list.length;
+    });
     $$('.work').forEach(bindHover);
+    applyAiLimit();
+  }
+  function applyAiLimit() {
+    var cards = $$('#worksAI .work'), more = $('#aiMore');
+    cards.forEach(function (c, i) { c.classList.toggle('hide', !state.aiOpen && i >= AI_VISIBLE); });
+    more.hidden = cards.length <= AI_VISIBLE;
+    $('#aiToggle').textContent = state.aiOpen ? T[state.lang].showLess : T[state.lang].showAll + ' (' + cards.length + ')';
   }
   function bindHover(el) {
     var v = $('video', el); if (!v || !matchMedia('(hover:hover)').matches) return;
@@ -94,21 +85,36 @@
   }
 
   /* ---------- credits ---------- */
-  function renderCredits() {
-    var order = ['screen', 'series', 'direction', 'development'], g = T[state.lang].groups, out = '';
-    order.forEach(function (k) {
-      var rows = state.credits.filter(function (c) { return c.group === k; });
-      if (!rows.length) return;
-      out += '<div class="group rv"><h3><span>' + esc(g[k][0]) + '</span><em>' + esc(g[k][1]) + '</em></h3>' + rows.map(creditRow).join('') + '</div>';
-    });
-    $('#creditGroups').innerHTML = out;
-    var com = state.credits.filter(function (c) { return c.group === 'commercial'; });
-    $('#commercial').innerHTML = com.map(function (c) { return '<li><b>' + esc(pick(c, 'title')) + '</b><span>' + esc(pick(c, 'role')) + '</span></li>'; }).join('');
+  function statusChip(c) {
+    if (!c.status) return '';
+    return '<span class="status ' + esc(c.status) + '">' + esc(T[state.lang].status[c.status] || c.status) + '</span>';
   }
   function creditRow(c) {
-    var st = T[state.lang].status[c.status] || c.status;
     return '<div class="row credit"><span class="y">' + esc(c.year) + '</span><div class="t">' + esc(pick(c, 'title')) + '<small>' + esc(pick(c, 'meta')) + '</small></div>' +
-      '<div class="r">' + esc(pick(c, 'role')) + '</div><div class="s"><span class="status ' + esc(c.status) + '">' + esc(st) + '</span></div></div>';
+      '<div class="r">' + esc(pick(c, 'role')) + '</div><div class="s">' + statusChip(c) + '</div></div>';
+  }
+  function seriesCard(c) {
+    var d = pick(c, 'date'), lg = pick(c, 'logline');
+    return '<article class="scard rv"><div class="sc-top"><span class="date">' + (d ? esc(T[state.lang].discussed) + ' · ' + esc(d) : '') + '</span>' + statusChip(c) + '</div>' +
+      '<h4>' + esc(pick(c, 'title')) + '</h4><small class="sc-meta">' + esc(pick(c, 'meta')) + '</small>' +
+      (lg ? '<p class="lg">' + esc(lg) + '</p>' : '') + '<span class="sc-role">' + esc(pick(c, 'role')) + '</span></article>';
+  }
+  function renderCredits() {
+    var by = function (g) { return state.credits.filter(function (c) { return c.group === g; }); };
+    $('#seriesGrid').innerHTML = by('series').map(seriesCard).join('');
+    var dev = by('development');
+    $('#slate').innerHTML = dev.map(function (c) { return '<span>' + esc(pick(c, 'title')) + '</span>'; }).join('');
+    $('#slate').parentNode && ($('#slate').previousElementSibling.hidden = !dev.length, $('#slate').hidden = !dev.length);
+    var g = T[state.lang].groups, out = '';
+    ['screen', 'direction'].forEach(function (k) {
+      var rows = by(k); if (!rows.length) return;
+      out += '<div class="group rv"><h3><span>' + esc(g[k][0]) + '</span><em>' + esc(g[k][1]) + '</em></h3>' + rows.map(creditRow).join('') + '</div>';
+    });
+    $('#filmGroups').innerHTML = out;
+    $('#actingList').innerHTML = by('acting').map(function (c) { return '<li><b>' + esc(pick(c, 'title')) + '</b><span>' + esc(pick(c, 'role')) + '</span></li>'; }).join('');
+    var com = by('commercial');
+    $('#commercial').innerHTML = com.map(function (c) { return '<li><b>' + esc(pick(c, 'title')) + '</b><span>' + esc(pick(c, 'role')) + '</span></li>'; }).join('');
+    $('#commercial').hidden = !com.length;
   }
 
   /* ---------- system players ---------- */
@@ -119,20 +125,26 @@
     }).join('');
   }
 
+  function renderAll() { renderWorks(); renderCredits(); }
+
   /* ---------- lightbox ---------- */
   var lb = $('#lb'), stage = $('#lbStage');
   function ytId(s) { var m = String(s || '').match(/(?:v=|youtu\.be\/|embed\/)([\w-]{6,})/); return m ? m[1] : s; }
   function openLB(src, kind, title, desc, list) {
-    var h = '';
+    var h = '', link = $('#lbLink');
+    link.hidden = true;
     if (kind === 'image') h = '<img src="' + esc(src) + '" alt="' + esc(title) + '">';
-    else if (kind === 'youtube') h = '<iframe src="https://www.youtube.com/embed/' + esc(ytId(src)) + '?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
-    else h = '<video src="' + esc(src) + '" controls autoplay playsinline></video>';
+    else if (kind === 'youtube') {
+      var id = ytId(src);
+      h = '<iframe src="https://www.youtube.com/embed/' + esc(id) + '?autoplay=1&rel=0" allow="autoplay; fullscreen; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+      link.href = 'https://www.youtube.com/watch?v=' + id; link.textContent = T[state.lang].watchYT + ' ↗'; link.hidden = false;
+    } else h = '<video src="' + esc(src) + '" controls autoplay playsinline></video>';
     stage.innerHTML = h;
     $('#lbT').textContent = title || ''; $('#lbD').textContent = desc || '';
     var pl = $('#lbPl'); pl.innerHTML = '';
     if (list && list.length > 1) {
       list.forEach(function (s, i) {
-        var b = document.createElement('button'); b.textContent = (state.lang === 'ar' ? 'لقطة ' : 'Shot ') + (i + 1); b.className = s === src ? 'on' : '';
+        var b = document.createElement('button'); b.textContent = T[state.lang].shot + ' ' + (i + 1); b.className = s === src ? 'on' : '';
         b.onclick = function () { openLB(s, 'video', title, desc, list); }; pl.appendChild(b);
       });
     }
@@ -154,10 +166,13 @@
   /* ---------- events ---------- */
   document.addEventListener('click', function (e) {
     var l = e.target.closest('.lang button'); if (l) return setLang(l.dataset.l);
-    var f = e.target.closest('.chip'); if (f) { state.filter = f.dataset.f; renderFilters(); $$('.work').forEach(function (w) { var d = state.works[w.dataset.i]; w.classList.toggle('hide', state.filter !== 'all' && d.category !== state.filter); }); return; }
+    if (e.target.closest('#aiToggle')) { state.aiOpen = !state.aiOpen; applyAiLimit(); return; }
     var w = e.target.closest('.work');
-    if (w) { var d = state.works[w.dataset.i], list = d.more && d.more.length ? [d.media].concat(d.more) : null; openLB(d.media_kind === 'youtube' ? (d.youtube || d.media) : d.media, d.media_kind, pick(d, 'title'), pick(d, 'desc'), list); return; }
-    if (e.target.closest('#reelBtn')) return openLB('media/video/reel.mp4', 'video', state.lang === 'ar' ? 'شوريل محمود فداوي' : 'Mahmoud Fadawy — Showreel', state.lang === 'ar' ? 'مختارات من أعمال الذكاء الاصطناعي.' : 'A selection of AI filmmaking work.');
+    if (w) {
+      var d = state.works[w.dataset.i], list = d.more && d.more.length ? [d.media].concat(d.more) : null;
+      openLB(d.media_kind === 'youtube' ? (d.youtube || d.media) : d.media, d.media_kind, pick(d, 'title'), pick(d, 'desc'), list); return;
+    }
+    if (e.target.closest('#reelBtn')) return openLB('media/video/reel.mp4', 'video', state.lang === 'ar' ? 'شوريل محمود فداوي' : 'Mahmoud Fadawy — Showreel', state.lang === 'ar' ? 'لقطات من الأفلام وأعمال الذكاء الاصطناعي.' : 'Selected footage: film scenes and AI filmmaking.');
     if (e.target.closest('#burger')) { var b = $('#burger'), open = !b.classList.contains('open'); b.classList.toggle('open', open); $('#nav').classList.toggle('open', open); b.setAttribute('aria-expanded', open); return; }
     if (e.target.closest('#nav a')) { $('#burger').classList.remove('open'); $('#nav').classList.remove('open'); }
   });
@@ -168,13 +183,13 @@
   var q = new URLSearchParams(location.search).get('lang');
   state.lang = (q === 'ar' || q === 'en') ? q : (store.get('mf-lang') === 'ar' ? 'ar' : 'en');
   if (q === 'en') store.set('mf-lang', 'en');
-  applyStatic(); renderTicker(); renderPlayers(); observe();
+  applyStatic(); renderPlayers(); observe();
   Promise.all([load('content/works.json'), load('content/credits.json')]).then(function (r) {
     state.works = r[0].works || []; state.credits = r[1].credits || [];
-    renderFilters(); renderWorks(); renderCredits(); observe();
+    renderAll(); observe();
   }).catch(function () {
     var C = window.__CONTENT || { works: {}, credits: {} };
     state.works = C.works.works || []; state.credits = C.credits.credits || [];
-    renderFilters(); renderWorks(); renderCredits(); observe();
+    renderAll(); observe();
   });
 })();

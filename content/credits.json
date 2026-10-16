@@ -24,28 +24,6 @@
     },
     {
       "group": "screen",
-      "year": "",
-      "title_en": "الجوهرة المخفية",
-      "title_ar": "الجوهرة المخفية",
-      "meta_en": "Original Saudi micro-drama · 60 episodes × ~2 min · Drama · Rise/Ambition · Crime",
-      "meta_ar": "مسلسل قصير سعودي أصلي · ٦٠ حلقة × ~دقيقتين · دراما · صعود وطموح · جريمة",
-      "role_en": "Original concept · Story · Screenplay · Dialogue · Contributing Director",
-      "role_ar": "الفكرة الأصلية · القصة · السيناريو · الحوار · مخرج مشارك",
-      "status": "Produced"
-    },
-    {
-      "group": "screen",
-      "year": "",
-      "title_en": "Early Saudi Micro-Drama Production",
-      "title_ar": "إنتاج مبكر للدراما القصيرة السعودية",
-      "meta_en": "Micro-drama series",
-      "meta_ar": "مسلسل دراما قصيرة",
-      "role_en": "Writer · Director",
-      "role_ar": "كاتب · مخرج",
-      "status": "Produced"
-    },
-    {
-      "group": "screen",
       "year": "2024",
       "title_en": "Missed Call",
       "title_ar": "Missed Call",
@@ -58,46 +36,125 @@
     {
       "group": "screen",
       "year": "",
+      "title_en": "Interview",
+      "title_ar": "Interview",
+      "meta_en": "Short Film",
+      "meta_ar": "فيلم قصير",
+      "role_en": "Actor",
+      "role_ar": "ممثل",
+      "status": ""
+    },
+    {
+      "group": "screen",
+      "year": "",
       "title_en": "Haq El Geera",
       "title_ar": "حق الجيرة",
       "meta_en": "Short Film · Directed by Faiza Amber",
       "meta_ar": "فيلم قصير · إخراج فايزة أمبر",
-      "role_en": "Actor",
-      "role_ar": "ممثل",
+      "role_en": "Actor · Supporting role",
+      "role_ar": "ممثل · دور مساند",
       "status": "Unreleased"
+    },
+    {
+      "group": "series",
+      "year": "",
+      "title_en": "Early Saudi Micro-Drama Production",
+      "title_ar": "إنتاج مبكر للدراما القصيرة السعودية",
+      "meta_en": "Micro-drama series",
+      "meta_ar": "مسلسل دراما قصيرة",
+      "role_en": "Writer · Director",
+      "role_ar": "كاتب · مخرج",
+      "status": "Produced"
+    },
+    {
+      "group": "series",
+      "year": "",
+      "title_en": "الجوهرة المخفية",
+      "title_ar": "الجوهرة المخفية",
+      "meta_en": "Original Saudi micro-drama · 60 episodes × ~2 min · Drama · Rise/Ambition · Crime",
+      "meta_ar": "مسلسل قصير سعودي أصلي · ٦٠ حلقة × ~دقيقتين · دراما · صعود وطموح · جريمة",
+      "role_en": "Original concept · Story · Screenplay · Dialogue · Contributing Director",
+      "role_ar": "الفكرة الأصلية · القصة · السيناريو · الحوار · مخرج مشارك",
+      "status": "Produced",
+      "logline_en": "Romantic entanglements and power struggles collide when Amira's schemes threaten Khalid's trust in Yasmin.",
+      "logline_ar": "تتشابك العلاقات العاطفية وصراعات السلطة حين تهدّد مؤامرات أميرة ثقة خالد بياسمين.",
+      "date_en": "Aug 2025",
+      "date_ar": "أغسطس ٢٠٢٥"
+    },
+    {
+      "group": "series",
+      "year": "",
+      "title_en": "الظل",
+      "title_ar": "الظل",
+      "meta_en": "Series",
+      "meta_ar": "مسلسل",
+      "role_en": "Writer",
+      "role_ar": "كاتب",
+      "status": "",
+      "logline_en": "A man receives messages and clues about a crime from his past and finds himself trapped in a network bent on revenge.",
+      "logline_ar": "يتلقّى رجل رسائل وأدلة عن جريمة من ماضيه، ليجد نفسه محاصرًا بشبكة تسعى للانتقام.",
+      "date_en": "Sep 2025",
+      "date_ar": "سبتمبر ٢٠٢٥"
     },
     {
       "group": "series",
       "year": "",
       "title_en": "العودة",
       "title_ar": "العودة",
-      "meta_en": "Produced series",
-      "meta_ar": "مسلسل منفَّذ",
+      "meta_en": "Series",
+      "meta_ar": "مسلسل",
       "role_en": "Original concept · Screenplay · Dialogue",
       "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
-      "status": "Produced"
+      "status": "Produced",
+      "logline_en": "Omar confronts the betrayal of his friend Adel amid a struggle over the Al-Saadi empire, where jealousy, love and blackmail intertwine.",
+      "logline_ar": "يواجه عمر خيانة صديقه عادل، وسط صراع على إمبراطورية السعدي تتشابك فيه الغيرة والحب والابتزاز.",
+      "date_en": "Sep 2025",
+      "date_ar": "سبتمبر ٢٠٢٥"
     },
     {
       "group": "series",
       "year": "",
-      "title_en": "The Wrong Mr Woung",
-      "title_ar": "The Wrong Mr Woung",
-      "meta_en": "Produced series",
-      "meta_ar": "مسلسل منفَّذ",
+      "title_en": "The Wrong Mr Wong",
+      "title_ar": "The Wrong Mr Wong",
+      "meta_en": "Comedy series",
+      "meta_ar": "مسلسل كوميدي",
       "role_en": "Original concept · Screenplay · Dialogue",
       "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
-      "status": "Produced"
+      "status": "Produced",
+      "logline_en": "Two failing sales employees travel to Malaysia to close a deal, but a lost product carton turns their mission into a series of comic crises.",
+      "logline_ar": "يسافر موظفا مبيعات فاشلان إلى ماليزيا لإتمام صفقة، لكن ضياع كرتونة المنتج يحوّل مهمتهما إلى سلسلة أزمات كوميدية.",
+      "date_en": "Oct 2025",
+      "date_ar": "أكتوبر ٢٠٢٥"
     },
     {
       "group": "series",
       "year": "",
-      "title_en": "No Budget Film",
-      "title_ar": "No Budget Film",
-      "meta_en": "Produced series",
-      "meta_ar": "مسلسل منفَّذ",
+      "title_en": "No Budget Film — NBF",
+      "title_ar": "No Budget Film — NBF",
+      "meta_en": "Comedy series",
+      "meta_ar": "مسلسل كوميدي",
       "role_en": "Original concept · Screenplay · Dialogue · Lead acting role",
       "role_ar": "الفكرة الأصلية · السيناريو · الحوار · دور البطولة",
-      "status": "Produced"
+      "status": "Produced",
+      "logline_en": "The team of a bankrupt production company tries to make zero-budget films, and their improvised fixes turn into comic disasters.",
+      "logline_ar": "يحاول فريق شركة إنتاج مفلسة تنفيذ أفلام بميزانية صفر، فتتحوّل حلولهم المرتجلة إلى كوارث كوميدية.",
+      "date_en": "Nov 2025",
+      "date_ar": "نوفمبر ٢٠٢٥"
+    },
+    {
+      "group": "series",
+      "year": "",
+      "title_en": "Don't Look Back — لا تنظر خلفك",
+      "title_ar": "Don't Look Back — لا تنظر خلفك",
+      "meta_en": "Horror series",
+      "meta_ar": "مسلسل رعب",
+      "role_en": "Original concept · Screenplay · Dialogue",
+      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
+      "status": "",
+      "logline_en": "A blogger and his companions enter a witch's cabin in Malaysia, triggering a curse that makes every glance behind them a step toward death.",
+      "logline_ar": "يدخل بلوجر ومرافقوه كوخ ساحرة في ماليزيا، فتُفعَّل لعنة تجعل كل نظرة خلفهم خطوة نحو الموت.",
+      "date_en": "Nov 2025 – Jan 2026",
+      "date_ar": "نوفمبر ٢٠٢٥ – يناير ٢٠٢٦"
     },
     {
       "group": "series",
@@ -108,7 +165,9 @@
       "meta_ar": "إنتاج سعودي · قصة سعودية أصلية",
       "role_en": "Original concept · Screenplay · Dialogue",
       "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
-      "status": "Produced"
+      "status": "Produced",
+      "date_en": "Aug 2026",
+      "date_ar": "أغسطس ٢٠٢٦"
     },
     {
       "group": "direction",
@@ -130,28 +189,6 @@
       "meta_ar": "فيلم قصير · صُوّر في نحو ٤ ساعات",
       "role_en": "Writer · Director",
       "role_ar": "كاتب · مخرج",
-      "status": "Produced"
-    },
-    {
-      "group": "commercial",
-      "year": "",
-      "title_en": "Saudi Electricity Company",
-      "title_ar": "الشركة السعودية للكهرباء",
-      "meta_en": "Commercial production",
-      "meta_ar": "إنتاج إعلاني",
-      "role_en": "Acting Coach",
-      "role_ar": "مدرب تمثيل",
-      "status": "Produced"
-    },
-    {
-      "group": "commercial",
-      "year": "",
-      "title_en": "Al Batal Chips — Weld El Balad",
-      "title_ar": "شيبس البطل — ولد البلد",
-      "meta_en": "Commercial production",
-      "meta_ar": "إنتاج إعلاني",
-      "role_en": "Acting Coach · Second Assistant Director",
-      "role_ar": "مدرب تمثيل · مساعد مخرج ثانٍ",
       "status": "Produced"
     },
     {
@@ -201,17 +238,6 @@
     {
       "group": "development",
       "year": "",
-      "title_en": "Don't Look Back",
-      "title_ar": "Don't Look Back",
-      "meta_en": "Feature film",
-      "meta_ar": "فيلم روائي طويل",
-      "role_en": "Original concept · Screenplay · Dialogue",
-      "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
-      "status": "In Development"
-    },
-    {
-      "group": "development",
-      "year": "",
       "title_en": "خيط مزيف",
       "title_ar": "خيط مزيف",
       "meta_en": "Animated film",
@@ -219,6 +245,61 @@
       "role_en": "Original concept · Screenplay · Dialogue",
       "role_ar": "الفكرة الأصلية · السيناريو · الحوار",
       "status": "In Development"
+    },
+    {
+      "group": "acting",
+      "year": "",
+      "title_en": "Missed Call",
+      "title_ar": "Missed Call",
+      "meta_en": "Short film",
+      "meta_ar": "فيلم قصير",
+      "role_en": "Lead · two characters",
+      "role_ar": "دور البطولة · شخصيتان",
+      "status": ""
+    },
+    {
+      "group": "acting",
+      "year": "",
+      "title_en": "No Budget Film",
+      "title_ar": "No Budget Film",
+      "meta_en": "Series",
+      "meta_ar": "مسلسل",
+      "role_en": "Lead role",
+      "role_ar": "دور البطولة",
+      "status": ""
+    },
+    {
+      "group": "acting",
+      "year": "",
+      "title_en": "Interview",
+      "title_ar": "Interview",
+      "meta_en": "Short film",
+      "meta_ar": "فيلم قصير",
+      "role_en": "Actor",
+      "role_ar": "ممثل",
+      "status": ""
+    },
+    {
+      "group": "acting",
+      "year": "",
+      "title_en": "Haq El Geera",
+      "title_ar": "حق الجيرة",
+      "meta_en": "Short film",
+      "meta_ar": "فيلم قصير",
+      "role_en": "Supporting role",
+      "role_ar": "دور مساند",
+      "status": ""
+    },
+    {
+      "group": "acting",
+      "year": "",
+      "title_en": "Filmed comedy sketches",
+      "title_ar": "سكتشات كوميدية مصوّرة",
+      "meta_en": "Short-form",
+      "meta_ar": "محتوى قصير",
+      "role_en": "Actor",
+      "role_ar": "ممثل",
+      "status": ""
     }
   ]
 }
